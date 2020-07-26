@@ -1,0 +1,58 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//System.out.println("hola mundo");
+		Ventana ventana=new Ventana();
+		ventana.setVisible(true);
+	}
+
+}
+
+class Ventana extends JFrame
+{
+	private JButton boton;
+	private JPanel panel;
+	private JLabel label;
+	private JTextField texto;
+	public Ventana()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(300,300);
+		panel=new JPanel();
+		boton=new JButton("boton");
+		label=new JLabel();
+		texto=new JTextField(15);
+		panel.add(new JLabel("dame texto:"));
+		panel.add(texto);
+		panel.add(boton);
+		add(panel);
+	}
+	private class Accion implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent evento) {
+			// TODO Auto-generated method stub
+			if(boton==evento.getSource())
+			{
+				String texto1=texto.getText();
+				label.setText(texto1);
+				
+			}
+		}
+		
+	}
+	{
+		
+	}
+}
